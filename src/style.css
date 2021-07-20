@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: initial;
+  color: #aa2b2b;
+  margin-top: 100px;
+  margin: 10px auto;
+}
+
+[type="checkbox"] {
+  margin-right: 15px;
+  margin-bottom: auto;
+  background: #fff;
+  position: relative;
+  border: 2px solid #9a9a9f;
+  border-radius: 2px;
+  vertical-align: middle;
+  overflow: hidden;
+  height: 17px;
+  width: 17px;
+}
+
+[type="checkbox"]:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+[type="checkbox"]:checked:after {
+  background: #397fda;
+  border: 2px solid #fff;
+}
+
+[type="checkbox"]:disabled {
+  background: #9a9a9f;
+  cursor: not-allowed;
+}
+
+[type="checkbox"]:disabled:checked:after {
+  background: #9a9a9f;
+  border-color: #9a9a9f;
+}
+
+[type="text"] {
+  border: none;
+  background: transparent;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+[type="text"]:focus {
+  outline: none;
+}
+
+.line {
+  width:100%;
+  background-color: #d64b4b;
+  height: 10px;
+  margin-bottom: 10px;
+}
+
+.todoApp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.todoApp__title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+  background-color: #d64b4b;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #be1b1b;
+  text-transform: uppercase;
+}
+
+.todoApp__list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: left;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #be1b1b;
+}
+
+.todoApp .todoApp__todo, .todoApp .todoApp__todo--complete, .todoApp .todoApp__todo--edit {
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.todoApp .todoApp__todo:hover, .todoApp .todoApp__todo--complete:hover, .todoApp .todoApp__todo--edit:hover {
+  background: #f2f2fa;
+}
+
+.todoApp .todoApp__todo:hover .todo__actions, .todoApp .todoApp__todo--complete:hover .todo__actions, .todoApp .todoApp__todo--edit:hover .todo__actions {
+  opacity: 1;
+}
+
+.todoApp .todo__label {
+  -webkit-box-flex: 2;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.todoApp .todo__actions {
+  opacity: 0;
+  padding: 20px;
+  padding-left: 0;
+}
+
+.todoApp .todo__actions button {
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: #9a9a9f;
+  cursor: pointer;
+}
+
+.todoApp .todo__actions button:hover {
+  color: #323232;
+}
+
+.todoApp .todoApp__newTodo {
+  border: 1px solid #be1b1b;
+  display: flex;
+  border-radius: 5px;
+  margin: 20px 0;
+  background-color: #f4f4f4;
+  font-size: 18px;
+}
+
+.todoApp .todoApp__newTodo button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #9a9a9f;
+}
+
+.todoApp .todoApp__newTodo button:hover {
+  color: #323232;
+}
+
+.todoApp .todoApp__newTodo .todo__actions {
+  opacity: 1;
+}
+
+.todoApp .todoApp__todo--complete {
+  color: #9a9a9f;
+  font-weight: bold;
+}
+
+.todoApp .todoApp__todo--complete .todo__label {
+  text-decoration: line-through;
+}
+
+.todoApp .todoApp__todo--edit {
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  border: 1px solid #9a9a9f;
+  border-radius: 3px;
+  background: #fff;
+  margin-top: 20px;
+}
+
+.todoApp .todoApp__todo--edit:hover {
+  background: initial;
+}
+
+.todoApp .todoApp__todo--edit [type="text"] {
+  color: #9a9a9f;
+}
+
+.todoApp .todoApp__todo--edit .todo__label {
+  padding: 0;
+}
+
+.todoApp .todoApp__todo--edit .todo__actions {
+  opacity: 1;
+}
+/*# sourceMappingURL=style.css.map */

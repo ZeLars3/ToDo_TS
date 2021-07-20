@@ -1,0 +1,168 @@
+$color_prime: #397fda;
+$color_black: #323232;
+$color_grey: #9a9a9f;
+$color_grey_light: #f2f2fa;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: initial;
+  color: $color_black;
+  margin-top: 100px;
+}
+
+[type="checkbox"] {
+  margin-right: 15px;
+  margin-bottom: auto;
+  background: #fff;
+  position: relative;
+  border: 2px solid $color_grey;
+  border-radius: 2px;
+  appearance: none;
+  vertical-align: middle;
+  overflow: hidden;
+  height: 17px;
+  width: 17px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  &:checked:after {
+    background: $color_prime;
+    border: 2px solid #fff;
+  }
+
+  &:disabled {
+    background: $color_grey;
+    cursor: not-allowed;
+
+    &:checked {
+      &:after {
+        background: $color_grey;
+        border-color: $color_grey;
+      }
+    }
+  }
+}
+
+[type="text"] {
+  border: none;
+  background: transparent;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.todoApp {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+
+  .todoApp__header {
+    border-bottom: 3px solid $color_black;
+    text-align: center;
+  }
+
+  .todoApp__todo {
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      background: $color_grey_light;
+
+      .todo__actions {
+        opacity: 1;
+      }
+    }
+  }
+
+
+  .todo__label {
+    flex: 2;
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .todo__actions {
+    opacity: 0;
+    padding: 20px;
+    padding-left: 0;
+
+    button {
+      border: none;
+      background: transparent;
+      font: inherit;
+      color: $color_grey;
+      cursor: pointer;
+
+      &:hover {
+        color: $color_black;
+      }
+    }
+  }
+
+  .todoApp__newTodo {
+    display: flex;
+    border: 1px solid $color_grey;
+    border-radius: 3px;
+    margin: 20px 0;
+    background: $color_grey_light;
+
+    button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: $color_grey;
+
+      &:hover {
+        color: $color_black;
+      }
+    }
+
+    .todo__actions {
+      opacity: 1;
+    }
+  }
+
+  .todoApp__todo--complete {
+    @extend .todoApp__todo;
+    color: $color_grey;
+
+    .todo__label {
+      text-decoration: line-through;
+    }
+  }
+
+  .todoApp__todo--edit {
+    @extend .todoApp__todo;
+    align-items: center;
+    position: relative;
+
+    &:hover {
+      background: initial;
+    }
+
+    [type="text"] {
+      color: $color_grey;
+    }
+
+    .todo__label {
+      padding: 0;
+    }
+
+    .todo__actions {
+      opacity: 1;
+    }
+  }
+}
