@@ -4,10 +4,13 @@ interface Task {
 }
 
 class API {
-    allTodos: Task[] = JSON.parse(window.localStorage.getItem('todos')) || [];
+    allTodos: Task[] = JSON.parse(window.localStorage.todos) || [];
 
     addTask(task: string): void {
-        if (task === undefined || task === "") return;
+        if (task === undefined || task === "") {
+            return;
+        }
+
         const todo: Task = {
             task: task,
             complete: false
@@ -79,32 +82,31 @@ class App {
     bindEventListeners(): void {
         const appTaskCheckboxes = document.querySelectorAll('.todoApp__todo input[type="checkbox"]');
         const appTaskDeleteButtons = document.querySelectorAll('.todoApp__todo .todo__action-delete');
-        const _that = this;
 
-        appTaskCheckboxes.forEach((checkkBox: Element) => {
-            checkkBox.addEventListener('change', e => {
-                const _this = e.target;
-                const todoID = parseInt(_this.parentElement.parentElement.dataset.taskId);
-                const allTasks = _that.API.getTasks;
+        appTaskCheckboxes.forEach((checkBox: Element) => {
+            checkBox.addEventListener('change', e => {
+                const event = e.target;
+                const todoID = parseInt(event.parentElement.parentElement.dataset.taskId);
+                const allTasks = this.API.getTasks;
 
-                allTasks[todoID].complete = _this.checked;
-                _this.parentElement.parentElement.classList.toggle('todoApp__todo--complete');
+                allTasks[todoID].complete = event.checked;
+                event.parentElement.classList.toggle('todoApp__todo--complete');
 
-                _that.API.saveTasks(allTasks);
-                _that.renderTasks();
+                this.API.saveTasks(allTasks);
+                this.renderTasks();
 
             });
         });
 
         appTaskDeleteButtons.forEach(deleteltBtn => {
             deleteltBtn.addEventListener('click', e => {
-                const _this = e.target;
-                const todoID = parseInt(_this.parentElement.parentElement.dataset.taskId);
-                const allTasks = _that.API.getTasks;
+                const event = e.target;
+                const todoID = parseInt(event.parentElement.dataset.taskId);
+                const allTasks = this.API.getTasks;
 
                 allTasks.splice(todoID, 1);
-                _that.API.saveTasks(allTasks);
-                _that.renderTasks();
+                this.API.saveTasks(allTasks);
+                this.renderTasks();
             })
         });
     }
