@@ -193,4 +193,22 @@ body {
 .todoApp .todoApp__todo--edit .todo__actions {
   opacity: 1;
 }
+
+.removeTaskButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #9a9a9f;
+  border-radius: 3px;
+  background: #fff;
+  margin-top: 20px;
+}
+
+.removeTaskButton:hover {
+  background-color: #323232;
+  color: white;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=style.css.map */

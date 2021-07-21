@@ -36,17 +36,17 @@ class API {
 
 class App {
     API: API = new API();
-    appNewTaskInput: HTMLInputElement = document.querySelector('#addTaskText');
-    appNewTaskAdd = document.querySelector('#addTaskButton');
-    appTaskList = document.querySelector('.todoApp__list');
+    appNewTaskInput: HTMLInputElement | null | any = document.querySelector('#addTaskText');
+    appNewTaskAdd: HTMLInputElement | null | any = document.querySelector('#addTaskButton');
+    appTaskList: Element | null | any= document.querySelector('.todoApp__list');
 
     constructor() {
 
-        this.appNewTaskAdd.addEventListener('click', e => {
+        this.appNewTaskAdd.addEventListener('click', (e: Element) => {
             this.addTask(this.appNewTaskInput.value);
         });
 
-        this.appNewTaskInput.addEventListener('keypress', e => {
+        this.appNewTaskInput.addEventListener('keypress', (e: Element) => {
             if (e.key.toLowerCase() !== "enter")
                 return;
             this.addTask(this.appNewTaskInput.value);
@@ -82,10 +82,11 @@ class App {
     bindEventListeners(): void {
         const appTaskCheckboxes = document.querySelectorAll('.todoApp__todo input[type="checkbox"]');
         const appTaskDeleteButtons = document.querySelectorAll('.todoApp__todo .todo__action-delete');
+        const removeTaskButton: Element | null | any = document.querySelector('.removeTaskButton');
 
         appTaskCheckboxes.forEach((checkBox: Element) => {
             checkBox.addEventListener('change', e => {
-                const event = e.target;
+                const event: Event | any = e.target;
                 const todoID = parseInt(event.parentElement.parentElement.dataset.taskId);
                 const allTasks = this.API.getTasks;
 
@@ -100,7 +101,7 @@ class App {
 
         appTaskDeleteButtons.forEach(deleteltBtn => {
             deleteltBtn.addEventListener('click', e => {
-                const event = e.target;
+                const event: Event | any = e.target;
                 const todoID = parseInt(event.parentElement.dataset.taskId);
                 const allTasks = this.API.getTasks;
 
@@ -109,6 +110,16 @@ class App {
                 this.renderTasks();
             })
         });
+
+        removeTaskButton.addEventListener('click', e => {
+            const event: Event | any = e.target;
+            const todoID = parseInt(event.dataset.taskId);
+            const allTasks = this.API.getTasks;
+
+            allTasks.splice(todoID, 1);
+            this.API.saveTasks(allTasks);
+            this.renderTasks();
+        })
     }
 }
 

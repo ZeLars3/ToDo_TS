@@ -8,19 +8,20 @@
     <title>ToDo_TS</title>
 </head>
 <body>
-    <div class="todoApp">
-        <div class="todoApp__header">
-          <h1 class="todoApp__title">ToDo List</h1>
-        </div>
-        <div class="line"></div>
-        <div class="todoApp__newTodo">
-          <input class="input" id="addTaskText" type="text" placeholder="Добавить пункт...">
-          <div class="todo__actions">
+<div class="todoApp">
+    <div class="todoApp__header">
+        <h1 class="todoApp__title">ToDo List</h1>
+    </div>
+    <div class="line"></div>
+    <div class="todoApp__newTodo">
+        <input class="input" id="addTaskText" type="text" placeholder="Добавить пункт...">
+        <div class="todo__actions">
             <button id="addTaskButton">Добавить</button>
-          </div>
         </div>
-        <div class="todoApp__list"></div>
-      </div>
-    <script src="./app.js"></script>
+    </div>
+    <div class="todoApp__list"></div>
+      <button class="removeTaskButton">Удалить всё</button>
+</div>
+<script src="./app.js"></script>
 </body>
 </html>

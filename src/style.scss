@@ -1,4 +1,4 @@
-$color_prime: #397fda;
+$color_prime: #aa2b2b;;
 $color_black: #323232;
 $color_grey: #9a9a9f;
 $color_grey_light: #f2f2fa;
@@ -96,8 +96,7 @@ body {
 
   .todo__actions {
     opacity: 0;
-    padding: 20px;
-    padding-left: 0;
+    padding: 20px 20px 20px 0;
 
     button {
       border: none;
