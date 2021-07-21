@@ -35,18 +35,13 @@ body {
 }
 
 [type="checkbox"]:checked:after {
-  background: #397fda;
-  border: 2px solid #fff;
+  background: #f1dc1a;
+  border-radius: 2px;
 }
 
 [type="checkbox"]:disabled {
   background: #9a9a9f;
   cursor: not-allowed;
-}
-
-[type="checkbox"]:disabled:checked:after {
-  background: #9a9a9f;
-  border-color: #9a9a9f;
 }
 
 [type="text"] {

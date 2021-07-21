@@ -8,7 +8,7 @@ class API {
 
     addTask(task: string): void {
         if (task === undefined || task === "") {
-            return;
+            alert('Вы ничего не добавили!');
         }
 
         const todo: Task = {

@@ -142,7 +142,7 @@ var App = /** @class */ (function () {
     }
     App.prototype.addTask = function (task) {
         if (task === undefined || task === "")
-            return;
+            alert("Вы ничего не добавили!");
         this.API.addTask(task);
         this.appNewTaskInput.value = "";
         this.renderTasks();
